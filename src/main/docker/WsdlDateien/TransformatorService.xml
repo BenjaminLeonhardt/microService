@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://microServices.MSBenchmark/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="TransformatorService" targetNamespace="http://microServices.MSBenchmark/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://microServices.MSBenchmark/" targetNamespace="http://microServices.MSBenchmark/" version="1.0">
+
+  <xs:element name="auftragAbschliessen" type="tns:auftragAbschliessen"/>
+
+  <xs:element name="auftragAbschliessenResponse" type="tns:auftragAbschliessenResponse"/>
+
+  <xs:element name="batchSpeichernFertig" type="tns:batchSpeichernFertig"/>
+
+  <xs:element name="batchSpeichernFertigResponse" type="tns:batchSpeichernFertigResponse"/>
+
+  <xs:element name="batchVerarbeitung" type="tns:batchVerarbeitung"/>
+
+  <xs:element name="batchVerarbeitungResponse" type="tns:batchVerarbeitungResponse"/>
+
+  <xs:element name="batchWeiterreichen" type="tns:batchWeiterreichen"/>
+
+  <xs:element name="batchWeiterreichenResponse" type="tns:batchWeiterreichenResponse"/>
+
+  <xs:complexType name="auftragAbschliessen">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="auftragAbschliessenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="batchVerarbeitung">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="batchVerarbeitungResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="batchWeiterreichen">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="batchWeiterreichenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="batchSpeichernFertig">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="batchSpeichernFertigResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="batchSpeichernFertigResponse">
+    <wsdl:part element="tns:batchSpeichernFertigResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="auftragAbschliessenResponse">
+    <wsdl:part element="tns:auftragAbschliessenResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="batchSpeichernFertig">
+    <wsdl:part element="tns:batchSpeichernFertig" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="auftragAbschliessen">
+    <wsdl:part element="tns:auftragAbschliessen" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="batchWeiterreichenResponse">
+    <wsdl:part element="tns:batchWeiterreichenResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="batchVerarbeitung">
+    <wsdl:part element="tns:batchVerarbeitung" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="batchWeiterreichen">
+    <wsdl:part element="tns:batchWeiterreichen" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="batchVerarbeitungResponse">
+    <wsdl:part element="tns:batchVerarbeitungResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TransformatorInterface">
+    <wsdl:operation name="auftragAbschliessen">
+      <wsdl:input message="tns:auftragAbschliessen" name="auftragAbschliessen">
+    </wsdl:input>
+      <wsdl:output message="tns:auftragAbschliessenResponse" name="auftragAbschliessenResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="batchVerarbeitung">
+      <wsdl:input message="tns:batchVerarbeitung" name="batchVerarbeitung">
+    </wsdl:input>
+      <wsdl:output message="tns:batchVerarbeitungResponse" name="batchVerarbeitungResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="batchWeiterreichen">
+      <wsdl:input message="tns:batchWeiterreichen" name="batchWeiterreichen">
+    </wsdl:input>
+      <wsdl:output message="tns:batchWeiterreichenResponse" name="batchWeiterreichenResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="batchSpeichernFertig">
+      <wsdl:input message="tns:batchSpeichernFertig" name="batchSpeichernFertig">
+    </wsdl:input>
+      <wsdl:output message="tns:batchSpeichernFertigResponse" name="batchSpeichernFertigResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TransformatorServiceSoapBinding" type="tns:TransformatorInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="auftragAbschliessen">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="auftragAbschliessen">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="auftragAbschliessenResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="batchVerarbeitung">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="batchVerarbeitung">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="batchVerarbeitungResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="batchWeiterreichen">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="batchWeiterreichen">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="batchWeiterreichenResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="batchSpeichernFertig">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="batchSpeichernFertig">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="batchSpeichernFertigResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TransformatorService">
+    <wsdl:port binding="tns:TransformatorServiceSoapBinding" name="TransformatorPort">
+      <soap:address location="http://10.15.246.56:28080/microServices/TransformatorService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

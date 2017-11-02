@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+
+package grpcServicesBA;
+
+service Resource {
+  rpc getObject (LCDBildschirm) returns (StringMsg) {}
+}
+
+message LCDBildschirm{
+	int32 id = 1;
+	string marke = 2;
+	bool vierk = 3;
+	repeated string zubehoer = 4;
+}
+
+message StringMsg {
+  string text = 1;
+}

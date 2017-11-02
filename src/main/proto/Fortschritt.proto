@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+
+package grpcServices;
+
+message FortschrittRequest {
+ 	int32 parameter = 1;
+	int32 protokoll = 2;
+	repeated string stapel = 3;
+	repeated string stapelGedreht = 4;
+	bool alsStapel = 5;
+	bool transformatorMS = 6;
+	int32 von = 7;
+	int32 bis = 8;
+	int32 gerade = 9;
+	int32 sqlGerade = 10;
+	int32 sqlGeradeSpeichern = 11;
+	int32 msUmdrehenGerade = 12;
+	int64 StartZeit = 13;
+	repeated int64 vorSQLDatenHolen = 14;
+	repeated int64 nachSQLDatenHolen = 15;
+	repeated int64 vorTransformator = 16;
+	repeated int64 nachTransformator = 17;
+	repeated int64 vorUmdrehenMS = 18;
+	repeated int64 nachUmdrehenMS = 19;
+	repeated int64 vorTransformatorMS = 20;
+	repeated int64 nachTransformatorMS = 21;
+	repeated int64 vorSQLDatenSpeichern = 22;
+	repeated int64 nachSQLDatenSpeichern = 23;
+	int64 EndZeit = 24;
+	int32 id = 25;
+	string titel = 26;
+	double durchschnittszeitEinzeln = 27;
+	int32 stapelgroesse = 28;
+	bool batchInBearbeitung = 29;
+	bool batchAmSpeichern = 30;
+}
+
+message StapelMsg {
+  repeated string message = 1;
+}
+
+message StringMsg {
+  string message = 1;
+}
+
+service Persistenz {
+  rpc getDatenBatch (FortschrittRequest) returns (StringMsg) {}
+  rpc setDatenBatch (StapelMsg) returns (StringMsg) {}
+  rpc getDatenBatchStream (FortschrittRequest) returns (stream StapelMsg) {}
+  rpc setDatenBatchStream (stream FortschrittRequest) returns (StringMsg) {}
+}
+
+
+service Transformator {
+  	rpc batchVerarbeitung(StapelMsg) returns (StringMsg) {}
+	rpc batchWeiterreichen(StapelMsg) returns (StringMsg) {}
+	rpc auftragAbschliessen(StringMsg) returns (StringMsg) {}
+	rpc batchSpeichernFertig(StapelMsg) returns (StringMsg) {}
+}
+
+service UmdrehenMS {
+  	rpc setDaten(FortschrittRequest) returns (StringMsg) {}
+	rpc auftragAbschliessen(StringMsg) returns (StringMsg) {}
+}

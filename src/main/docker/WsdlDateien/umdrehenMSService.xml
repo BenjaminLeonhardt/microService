@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://microServices.MSBenchmark/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="umdrehenMSService" targetNamespace="http://microServices.MSBenchmark/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://microServices.MSBenchmark/" targetNamespace="http://microServices.MSBenchmark/" version="1.0">
+
+  <xs:element name="auftragAbschliessenUMS" type="tns:auftragAbschliessenUMS"/>
+
+  <xs:element name="auftragAbschliessenUMSResponse" type="tns:auftragAbschliessenUMSResponse"/>
+
+  <xs:element name="fortschritt" type="tns:fortschritt"/>
+
+  <xs:element name="setDatenStapelUMS" type="tns:setDatenStapelUMS"/>
+
+  <xs:element name="setDatenStapelUMSResponse" type="tns:setDatenStapelUMSResponse"/>
+
+  <xs:complexType name="auftragAbschliessenUMS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="auftragAbschliessenUMSResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="setDatenStapelUMS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:fortschritt"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="fortschritt">
+    <xs:sequence>
+      <xs:element name="alsStapel" type="xs:boolean"/>
+      <xs:element name="batchAmSpeichern" type="xs:boolean"/>
+      <xs:element name="batchInBearbeitung" type="xs:boolean"/>
+      <xs:element name="bis" type="xs:int"/>
+      <xs:element name="durchschnittszeitEinzeln" type="xs:double"/>
+      <xs:element name="endZeit" type="xs:long"/>
+      <xs:element name="gerade" type="xs:int"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="msUmdrehenGerade" type="xs:int"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="nachSQLDatenHolen" nillable="true" type="xs:long"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="nachSQLDatenSpeichern" nillable="true" type="xs:long"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="nachTransformator" nillable="true" type="xs:long"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="nachTransformatorMS" nillable="true" type="xs:long"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="nachUmdrehenMS" nillable="true" type="xs:long"/>
+      <xs:element name="parameter" type="xs:int"/>
+      <xs:element name="protokoll" type="xs:int"/>
+      <xs:element name="sqlGerade" type="xs:int"/>
+      <xs:element name="sqlGeradeSpeichern" type="xs:int"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="stapel" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="stapelGedreht" nillable="true" type="xs:string"/>
+      <xs:element name="stapelgroesse" type="xs:int"/>
+      <xs:element name="startZeit" type="xs:long"/>
+      <xs:element minOccurs="0" name="titel" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="transformatorBatchErhalten" nillable="true" type="xs:long"/>
+      <xs:element name="transformatorMS" type="xs:boolean"/>
+      <xs:element name="von" type="xs:int"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="vorSQLDatenHolen" nillable="true" type="xs:long"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="vorSQLDatenSpeichern" nillable="true" type="xs:long"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="vorTransformator" nillable="true" type="xs:long"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="vorTransformatorMS" nillable="true" type="xs:long"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="vorUmdrehenMS" nillable="true" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="setDatenStapelUMSResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="auftragAbschliessenUMS">
+    <wsdl:part element="tns:auftragAbschliessenUMS" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="auftragAbschliessenUMSResponse">
+    <wsdl:part element="tns:auftragAbschliessenUMSResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setDatenStapelUMSResponse">
+    <wsdl:part element="tns:setDatenStapelUMSResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setDatenStapelUMS">
+    <wsdl:part element="tns:setDatenStapelUMS" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="umdrehenMSInterface">
+    <wsdl:operation name="auftragAbschliessenUMS">
+      <wsdl:input message="tns:auftragAbschliessenUMS" name="auftragAbschliessenUMS">
+    </wsdl:input>
+      <wsdl:output message="tns:auftragAbschliessenUMSResponse" name="auftragAbschliessenUMSResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setDatenStapelUMS">
+      <wsdl:input message="tns:setDatenStapelUMS" name="setDatenStapelUMS">
+    </wsdl:input>
+      <wsdl:output message="tns:setDatenStapelUMSResponse" name="setDatenStapelUMSResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="umdrehenMSServiceSoapBinding" type="tns:umdrehenMSInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="auftragAbschliessenUMS">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="auftragAbschliessenUMS">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="auftragAbschliessenUMSResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setDatenStapelUMS">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="setDatenStapelUMS">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setDatenStapelUMSResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="umdrehenMSService">
+    <wsdl:port binding="tns:umdrehenMSServiceSoapBinding" name="umdrehenMSPort">
+      <soap:address location="http://10.15.242.242:38080/microServices/umdrehenMSService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
