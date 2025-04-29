@@ -11,7 +11,7 @@
           |______  /\___  >___|  /\___  >___|  /__|_|  (____  /__|  |__|_ \
                  \/     \/     \/     \/     \/      \/     \/           \/
         
-Version 0.25  
+Version 0.25   
   
 Anleitung zur Inbetriebnahme des Microservice-Benchmarks  
 ========================================================
